@@ -37,7 +37,8 @@ PageStackWindow {
         id: page
         anchors.fill: parent
 
-        orientationLock: window.getOrientationLockMode()
+        orientationLock: PageOrientation.Manual //window.getOrientationLockMode()
+        //screen.allowedOrientations: Screen.Landscape | Screen.LandscapeInverted | Screen.Portrait
 
         Rectangle {
         property string fgcolor: "black"
