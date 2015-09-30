@@ -180,8 +180,14 @@ void Terminal::keyPress(int key, int modifiers)
 
     resetBackBufferScrollPos();
 
-    if (c.isLetter()) {
-        c = ((modifiers & Qt::ShiftModifier) != 0) ? c.toUpper() : c.toLower();
+    if (c.isLetter() && ((modifiers & Qt::ShiftModifier) != 0)) {
+        if (c.isUpper()) {
+            // If key is uppercase and shift is pressed convert it to lowercase
+            c = c.toLower();
+        } else if (c.isLower()) {
+            // If key is lowercase and shift is pressed convert it to uppercase
+            c = c.toUpper();
+        }
     }
 
     QString toWrite;
