@@ -28,7 +28,7 @@ PageStackWindow {
     focus: true
 
     Keys.onPressed: {
-        term.keyPress(event.key,event.modifiers);
+        term.keyPress(event.key,event.modifiers,event.text);
     }
 
     property string windowTitle: util.currentWindowTitle();
@@ -359,7 +359,7 @@ PageStackWindow {
 
         function vkbKeypress(key,modifiers) {
             wakeVKB();
-            term.keyPress(key,modifiers);
+            term.keyPress(key,modifiers,"");
         }
 
         function wakeVKB()
